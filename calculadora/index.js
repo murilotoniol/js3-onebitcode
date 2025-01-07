@@ -1,5 +1,5 @@
 const main = document.querySelector('main')
-const root = document.querySelector('root')
+const root = document.querySelector(':root')
 const input = document.getElementById('input')
 const inputResultado = document.getElementById('resultado')
 
@@ -35,6 +35,37 @@ input.addEventListener('keydown', function(ev){
 document.getElementById('equal').addEventListener('click', calcular)
 
 function calcular(){
+    inputResultado.value="ERRO!"
+    inputResultado.classList.add("error")
     const resultado = eval(input.value)
     inputResultado.value = resultado
+    inputResultado.classList.remove("error")
 }
+
+document.getElementById('copyToClipboard').addEventListener('click', function(ev){
+    const button = ev.currentTarget
+    if (button.innerText === "Copiar"){
+        button.innerText = "Copiado!"
+        button.classList.add("success")
+        navigator.clipboard.writeText(inputResultado.value)
+    }else{
+        button.innerText = "Copiar"
+        button.classList.remove("success")
+    }
+})
+
+document.getElementById('alteradorTema').addEventListener('click', function(){
+    if (main.dataset.theme === "escuro"){
+        root.style.setProperty("--bg-color","#f1f5f9")
+        root.style.setProperty("--border", "#aaa")
+        root.style.setProperty("--font-color", "#212529")
+        root.style.setProperty("--primary-color", "#c7911e")
+        main.dataset.theme = "claro"
+    }else{
+        root.style.setProperty("--bg-color","#212529")
+        root.style.setProperty("--border", "#666")
+        root.style.setProperty("--font-color", "#f1f5f9")
+        root.style.setProperty("--primary-color", "#ffc74d")
+        main.dataset.theme = "escuro"
+    }
+})
