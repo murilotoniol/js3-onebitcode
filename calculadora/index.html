@@ -7,16 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="calculator-2017-10-10.ico" type="image/x-icon">
-  <title>Projeto Calculadora</title>
+  <title>Projeto Prático Guiado 1</title>
   <link rel="stylesheet" href="style.css">
   <script src="./index.js" defer></script>
 </head>
 <body>
-  <main data-theme="escuro">
+  <main data-theme="dark">
     <header class="flex align-center justify-between">
       <h1>Calc.js</h1>
-      <button id="alteradorTema">Alterar Tema Escuro/Claro</button>
+      <button id="themeSwitcher">Switch Theme Dark/Light</button>
     </header>
     <input type="text" id="input">
     <div id="keys">
@@ -42,8 +41,8 @@
       <button id="equal">=</button>
     </div>
     <section class="flex align-center justify-between">
-      <button id="copyToClipboard">Copiar</button>
-      <input type="text" id="resultado" disabled>
+      <button id="copyToClipboard">Copy</button>
+      <input type="text" id="result" disabled>
     </section>
   </main>
 </body>
